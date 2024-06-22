@@ -1,5 +1,5 @@
 import os
-import pickle
+import joblib
 import numpy as np
 import streamlit as st
 
@@ -9,19 +9,19 @@ encoder_path = './Models/encoder.pkl'
 
 if os.path.exists(file_path):
   with open(file_path, 'rb') as file:
-    df = pickle.load(file)
+    df = joblib.load(file)
 else:
     st.error(f"File not found: {file_path}")
     
 if os.path.exists(model_path):
   with open(model_path, 'rb') as file:
-    model = pickle.load(file)
+    model = joblib.load(file)
 else:
   st.error(f"File not found: {model_path}")
   
 if os.path.exists(encoder_path):
   with open(encoder_path, 'rb') as file:
-    encoder = pickle.load(file)
+    encoder = joblib.load(file)
 else:
   st.error(f"File not found: {encoder_path}")
 
